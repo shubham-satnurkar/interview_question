@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bubbling and Capturing Events</title>
+	<style>
+		*{margin: 0;padding: 0;box-sizing: border-box;}
+		.gp{width: 300px;height: 300px;border:1px solid #000;padding: 50px;margin: 100px auto;cursor: pointer;background: red;}
+		.pr{width: 200px;height: 200px;border:1px solid #000;padding: 50px;cursor: pointer;background: green;}
+		.ch{width: 100px;height: 100px;border:1px solid #000;cursor: pointer;background: blue;}
+	</style>
+</head>
+<body>
+	<div class="gp" title="Grand Parent">
+		<div class="pr" title="Parent">
+			<div class="ch" title="Child"></div>
+		</div>
+	</div>
+
+	<script>
+		let grandParent = document.querySelector('.gp');
+		let parent = document.querySelector('.pr');
+		let child = document.querySelector('.ch');
+
+		grandParent.addEventListener('click', (event)=>{
+			console.log('Grand Parent Click');
+		}, true)
+		parent.addEventListener('click', (event)=>{
+			console.log('Parent Click');
+		}, true)
+		child.addEventListener('click', (event)=>{
+			console.log('Grand Child Click');
+			event.stopPropagation();
+		}, true)
+
+		
+		
+		
+
+	</script>
+</body>
+</html>

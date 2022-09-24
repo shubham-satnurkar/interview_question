@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>String Value Print</title>
+</head>
+<body>
+	<h1>As Per User Input Number Word of the Sentence Should Print.</h1>
+	<h5>String :- "JavaScript Is Scripting Language"</h5>
+	<p>
+		<label>User Input :-</label>
+		<input type="text" id="userInput" onkeyup ="printStr()">
+	</p>
+	<p id="result">Result :-</p>
+	<h4>Add Underscore inbeween the white space of the word</h4>
+	<p id="target"></p>
+	<script >
+		let str= "JavaScript Is Scripting Language";
+		let strs = str.split(" ");
+		console.log(strs)
+		console.log(str.match(/(\w+)/g).length);
+
+		function printStr(){
+			let userInput = document.getElementById('userInput');
+			let n = userInput.value;
+			let result = document.getElementById('result');
+
+			if(n<=strs.length){
+				 result.innerHTML = strs.slice(0, n).join(' ');
+
+			}
+			else{
+				 result.innerHTML = "Invalid Word "
+			}
+			
+		}
+
+		// Add Underscore inbeween the white space of the word
+		let name = "JavaScript Is Scripting Language";
+		let target = document.getElementById('target');
+		let word = name.trim(name).split(" ").join("_");
+		target.innerHTML = word;
+		console.log(word);
+
+		var arr =[];
+
+		for(let i=0; i<name.length; i++){
+			// console.log(name[i]);
+			arr+=name[i]+"$";
+		}
+		console.log(arr)
+
+		let rev = name.split("").reverse().join('');
+		console.log(rev)
+
+
+		for(let i=str.length-1; i>0; i--){
+
+		}
+
+
+
+
+
+
+
+		let array =["Apple", "Mango", "Banana", "Guava"];
+			array.splice(3,1,"Papaya")
+		console.log(array)
+	</script>
+</body>
+</html>

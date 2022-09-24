@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vowels and consonants</title>
+</head>
+<body>
+	<h1>Remove VOWELS (a,e,i,o,u) form the sentance.</h1>
+	<h3 id="txt"></h3>
+	<script>
+		let str = "The Function along with  it's lexical scope create a bundle is know as Closure."
+		   str = str.split().map(x=>x.replace(/[aeiou]/g, '')).join("");
+		   console.log(str);
+		   console.log(str.replace(/[aeiou]/g, ''))
+
+		let txt ="All You Need In This Life Is Ignorance And Confidance And Then Success Is Sure";
+			console.log(txt.replace(/[aeiouAEIOU]/g, ''));
+			document.getElementById("txt").innerHTML = txt.replace(/[aeiouAEIOU]/g, '');
+
+	</script>
+</body>
+</html>

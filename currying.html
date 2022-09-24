@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Currying</title>
+</head>
+<body>
+
+	<script >
+		function add(a,b,c){
+			return a+b+c
+		}
+		console.log(add(10,40,50))
+
+		// Currying
+		const addCurry = (a)=>{
+			return (b) =>{
+				return (c) =>{
+					return a+b+c
+				}
+			}
+		}
+		console.log(addCurry(2)(4)(5));
+const arr1 = ['Mango', 'Banana', 'Guava', 'Grapes', 'Watermelon'];
+		const arr2 = [20, 'ten', true, null, undefined, {name:'Shubham'}];
+		console.log(...arr1, ...arr2)
+		
+
+		// 127.0.0.1       localhost.drupal_web.com
+
+// 		<VirtualHost *:80>
+//     ServerAdmin webmaster@http://localhost.drupal_web.com
+//     DocumentRoot "C:/xampp/htdocs/drupal_web"
+//     ServerName localhost.drupal_web.com
+//     ErrorLog "logs/localhost.drupal_web.com-error.log" 
+//     CustomLog "logs/localhost.drupal_web.com-access.log" common
+// </VirtualHost>
+
+
+	// let arr = 
+	function sumArray(arr){
+		let sum=0;
+		for(let i=0; i<arr.length;i++){
+			sum=sum+ arr[i];
+			console.log(sum)
+		}
+		return sum
+	}
+	sumArray([1,2,3,4,10,11])
+
+	// let str = "Shubham"
+		function revStr(str){
+			let rev;
+			for(let i=str.length-1; i>0; i--){
+				 rev = str[i];
+				console.log(rev.toString())
+			}
+			return rev
+		}
+		revStr("Shubham")
+
+	</script>
+</body>
+</html>

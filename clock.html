@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Clock</title>
+</head>
+<body>
+	<h1>Timer Clock 24hr to 12hr Conversion</h1>
+
+	<p>
+		<label>User Input :-</label>
+		<input type="text" id="userInput1" value="00" onkeyup ="timer1()" >
+	</p>
+	<div>Result :- <b id="timer1"></b></div>
+
+	<h1>Timer Clock 12hr to 24hr Conversion</h1>
+
+	<p>
+		<label>User Input :-</label>
+		<input type="text" id="userInput2" value="00" onkeyup ="timer2()" >
+	</p>
+	<div>Result :- <b id="timer2"></b></div>
+
+	<script>
+		function timer1(){
+			let input = document.getElementById("userInput1");
+			let time = input.value
+
+
+			let strTime =  time.split(':');
+			let result= document.getElementById("timer1");
+
+			if(parseInt(strTime[0])>12){
+				hour = parseInt(strTime[0])-12;
+				result.innerHTML = (hour+ ':'+ strTime[1]);
+			}
+			else{
+				if(strTime[0]== '00'){
+					hour = 12;
+					result.innerHTML = (hour + ':' + strTime[1]);
+				}else{
+					result.innerHTML = (time)
+				}
+			}
+		}
+
+		function timer2(){
+			let input = document.getElementById("userInput2");
+			let time = input.value
+
+
+			let strTime =  time.split(':');
+			let result= document.getElementById("timer2");
+
+			if(parseInt(strTime[0])<12){
+				hour = parseInt(strTime[0])+12;
+				result.innerHTML = (hour+ ':'+ strTime[1]);
+			}
+			else{
+				if(strTime[0]== '12'){
+					hour = 24;
+					result.innerHTML = (hour + ':' + strTime[1]);
+				}else{
+					result.innerHTML = (time)
+				}
+			}
+		}
+
+	</script>
+
+</body>
+</html>

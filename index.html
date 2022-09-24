@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+         :root {
+            --red-color: maroon;
+        }
+        
+        div {
+            width: 100px;
+            height: 100px;
+            border: 5px solid green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+         */
+        
+        .box1 {
+            width: 300px;
+            height: 300px;
+            border: 5px solid #00f;
+            outline: 5px solid red;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+        
+        .box2 {
+            width: 200px;
+            height: 200px;
+            border: 5px solid yellow;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+            background-color: var(--red-color);
+        }
+        
+        p {
+            width: 50%;
+            /* overflow: hidden; */
+            text-overflow: ellipsis;
+            height: 100px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        
+        .container {
+            width: 1000px;
+            height: 500px;
+            margin: auto;
+            border: 1px solid black;
+            display: flex;
+            /* flex-wrap: wrap; */
+            /* gap: 5px; */
+            justify-content: space-between;
+        }
+        
+        .col {
+            /* width: 33%; */
+            min-height: 300px;
+            border: 1px solid red;
+            flex: 0 0 30%;
+        }
+        
+        .counter {
+            counter-reset: myCounter;
+        }
+        
+        h2::before {
+            counter-increment: myCounter;
+            content: " "counter(myCounter)". ";
+            filter: grayscale(100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        1
+        <div class="box2">
+            2
+            <div>3</div>
+        </div>
+    </div>
+
+    <section class="counter">
+        <h2>HTML</h2>
+        <h2>CSS</h2>
+        <h2>JAVASCRIPT</h2>
+        <h2>JQUERY</h2>
+        <h2>PHP</h2>
+    </section>
+
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel quae, quibusdam exercitationem harum optio labore quo ab architecto repudiandae nesciunt nihil, non sint hic, nam qui doloribus iste neque vero. Lorem ipsum dolor sit, amet consectetur adipisicing
+        elit. Vel quae, quibusdam exercitationem harum optio labore quo ab architecto repudiandae nesciunt nihil, non sint hic, nam qui doloribus iste neque vero.
+    </p>
+
+    <ul>
+        <li>list-1</li>
+        <li>list-2</li>
+        <li>list-3</li>
+        <li>list-4</li>
+        <li>list-5</li>
+    </ul>
+
+
+    <input type="text" id="txt">
+    <p id="target"></p>
+    <button id="btn">Click Me</button>
+
+
+    <div class="container">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+    </div>
+    <ol>
+        <li>item</li>
+        <li>item
+            <ol>
+                <li>item</li>
+                <li>item</li>
+                <li>item
+                    <ol>
+                        <li>item</li>
+                        <li>item</li>
+                        <li>item</li>
+                    </ol>
+                </li>
+                <li>item</li>
+            </ol>
+        </li>
+        <li>item</li>
+        <li>item</li>
+    </ol>
+
+    <script>
+        const text = document.getElementById('txt');
+
+        document.getElementById('btn')
+            .addEventListener('click', () => {
+                document.getElementById('target').innerHTML = text.value
+            });
+
+
+        // CatName("Tiger")
+
+        function CatName(name) {
+            console.log("My cat name is " + name)
+        }
+
+
+        function outer() {
+            var name = "Shubham";
+
+            function inner() {
+                // alert(name);
+            }
+            inner()
+        }
+        outer()
+
+
+        function makeAdder(x) {
+            return function(y) {
+                return x + y;
+            };
+        }
+
+        var add5 = makeAdder(5);
+        var add10 = makeAdder(10);
+
+        console.log(add5(2)); // 7
+        console.log(add10(2)); // 12
+
+
+
+        function restPara(a, b, c, ...more) {
+            console.log(`a is ${a}`);
+            console.log(`b is ${b}`);
+            console.log(`c is ${c}`);
+            console.log(`rest values are ${more}`);
+        }
+        restPara('one', 'two', 'three', 'four', 'five', 'six', 'seven');
+
+
+
+
+        var myFirstWord = "Rahul";
+        var mySecondWord = "honest";
+        var myThirdWord = "hard working";
+        var myFourthWord = "employee";
+
+        console.log(myFirstWord+ " is a " + mySecondWord + " & " + myThirdWord + " " + myFourthWord)
+        console.log( myFirstWord + " is a " + mySecondWord + " & " + myThirdWord + " " + myFourthWord + ".")
+        console.log( myFirstWord + " is a " + mySecondWord + " & " + myThirdWord + " & sincere " + myFourthWord + ".")
+
+
+        // function resultAll(arr) {
+        //     let result = 0;
+        //    for (let i = 0; i < arr.length; i++) {
+        //      for (let j = 0; j < arr[ i ].length; j++) {
+        //        if( arr[ i ][ j ] != 5 ) result += (arr[ i ][ j ]); 
+        //         console.log(result+=arr[i][j])
+        //      }
+                
+        //    }
+        //      // return result;
+        //   }
+          
+        //   resultAll ( [ [1, 2], [3, 4], [5, 6, 7] ] ); 
+
+
+          function resultAll(arr) {
+                let result = 0;
+                let i = 0;
+                while ( i < arr.length ) {
+                     for (let j = 0; j < arr[ i ].length; j++) {
+                          if( arr[ i ][ j ] % 3 == 0) result += (arr[ i ][ j ]); 
+                console.log(arr[i])
+                     }
+                    i++;
+                 }
+                        console.log(result)
+              return result;
+          }
+          resultAll ( [ [1, 2], [3, 4], [5, 6, 7] ] ); 
+
+
+          // Given a variable var myWord = "Hummingbird"; which line of code below will result in the variable myLetter to have the value "g"?
+          var myWord = "Hummingbird";
+          console.log(myWord[6])
+
+          // Given a variable var myVar = 121; which line of code below will result in the printing of the number 121 in the console log?
+          var myNum = 121;
+          // console.log(++myNum);
+          // console.log(1+myNum);
+          console.log(myNum++);
+          // console.log(myNum+1);
+
+
+          // Look at the below JS function carefully. Then choose the line of JS code from the below options that will print 99 in the console log.
+          function myNetPrice(price, tax=0.1, discount=0.1){
+            var NetPrice = price - price * discount;
+            NetPrice = NetPrice + NetPrice * tax;
+            return NetPrice
+          }
+          // console.log(NetPrice)
+          // console.log(myNetPrice(100, 0.1, 0))
+          // console.log(myNetPrice(100, 0.2, 0.1))
+          console.log(myNetPrice(100))
+          // console.log(myNetPrice(100, 0.3, 0.2))
+
+
+          // Look at the below JS function carefully. Then choose the line of JS code from the below options that will print "ek string" in the console log.
+          function howMany(val){
+            var answer = "";
+            switch (val) {
+                case 1:
+                    answer = "ek Number";
+                    break;
+                case "1":
+                    answer = "ek string";
+                    break;
+                case "L":
+                    answer = "ek Letter"
+                    break;
+            }
+            return answer
+          }
+
+          console.log(howMany(1));
+          console.log(howMany("1"));
+          // console.log(howMany(10-9));
+          console.log(howMany("L"));
+
+
+
+          // Look at the below JS code carefully. What will be output to the console log when this code executes?
+          var arr = [
+            [1,2], [3,4], [5,6]
+          ];
+          for(var i=0; i<arr.length; i++){
+            for(var j=0; j<arr[i].length; j++){
+                console.log(arr[i][j])
+            }
+          }
+
+
+
+          /*
+          Look at the below JS function carefully. Then choose the line of JS code from the below options that will print 24 in the console log. (Hint: this code uses recursion)
+          */
+          function multiply(arr, n){
+            if(n<=0){
+                return 1;
+            }
+            else{
+                return multiply(arr, n-1)* arr[n-1];
+            }
+          }
+          // console.log(multiply([1,2,3,4,5],5))
+          console.log(multiply([1,2,3,4,5],4))
+          // console.log(multiply([1,2,3,4,5],3))
+          // console.log(multiply([1,2,3,4,5],2))
+
+
+          // Look at the below JS code carefully. How many * will be output to the console log?
+          for(var i=0;i<4; i++){
+            for(var j=0; j<=4; j++){
+                document.write("*")
+                console.log("*")
+            }
+            console.log("*")
+          }
+
+
+          // Look at the below JS code carefully. What will be output to the console log when this code executes?
+          var ourArray = [];
+          var i =0;
+          do{
+            ourArray.push(i);
+            i++;
+          }
+          while (i<5) {
+              console.log(ourArray);
+          }
+
+
+          // Look at the below JS code carefully. What will be output to the console log when this code executes?
+
+          var ourArray = [];
+          for(var i=10; i>0; i-=2){
+            ourArray.push(i);
+          }
+          console.log(ourArray);
+
+
+          // Look at the below JS code carefully. Then choose the line of JS code from the below options that will print undefined in the console log.
+
+          var  myObj ={
+            "hat":"Cowboy",
+            "shirt": "formal",
+            "shoes": "casual"
+          };
+          console.log(myObj.hat);
+          console.log(myObj.shirt);
+          console.log(myObj.shoes);
+          console.log(myObj.cloths);
+
+
+
+          console.log(parseInt("123Hello"))
+          console.log(parseInt("Hello123"))
+
+
+
+          let a = [1,2,3,4,5,6];
+          var left =0, right= 5;
+          var found = false;
+          var target = 5;
+
+        while (left<=right) {
+            var mid= Math.floor((left+right)/2);
+            if(a[mid] == target){
+                found = true;
+                break;
+            }
+            else if(a[mid]<target){
+                left=mid+1;
+            }
+            else{
+                right=mid-1;    
+            }
+        }
+        if(found){
+            console.log("yes")
+        }
+        else{
+            console.log('no')
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

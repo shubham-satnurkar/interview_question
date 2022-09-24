@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bind Polyfill Method</title>
+</head>
+<body>
+
+	<script>
+		let name = {
+			firstName : 'Shubham',
+			lastName : 'Satnurkar'
+		}
+		let printName = function(hometown, state){
+			console.log(this.firstName+ " " + this.lastName+ " from "+ hometown+ " "+ state);
+		}
+
+		printName.call(name, "Nagpur", "Maharashtra");
+		printName.apply(name, ["Pune", "Maharashtra"]);
+
+		let printFullName = printName.bind(name, "Nashik", "Maharashtra");
+		printFullName();
+
+
+		// Polyfills for bind to create our own bind method
+		Function.prototype.myBind = function(...args){
+			let obj = this;
+				params = args.slice(1);
+			return function(...args2){
+				obj.apply(args[0], [...params, ...args2]);
+			}
+		}
+
+		let printFullName2 = printName.myBind(name, "Mumbai");
+		printFullName2("Maharashtra");
+	</script>
+</body>
+</html>

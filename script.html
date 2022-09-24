@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Javascript</title>
+</head>
+
+<body>
+
+  <script>
+    function typeCheck(object) {
+      for (key in object) {
+
+        if (key.includes('string')) {
+          console.log(object[key]);
+          if (typeof (object[key]) != 'string') {
+            throw Error;
+          }
+        } else if (key.includes('int') || key.includes('float') || key.includes('number')) {
+          console.log(object[key]);
+          if (typeof (object[key]) != 'number') {
+            throw Error;
+          } else if (key.includes('int')) {
+            if (Number.isInteger(object[key])) {
+              console.log("true");
+            } else {
+              throw Error;
+            }
+          } else if (key.includes('float')) {
+            if (Number.isInteger(object[key])) {
+              throw Error;
+            } else {
+              console.log("true");
+            }
+          }
+        } else if (key.includes('bool')) {
+          if (typeof (object[key]) != 'boolean') {
+            throw Error;
+          }
+        } else if (typeof (object[key] == 'object')) {
+          console.log('object' + " " + object[key]);
+        } else {
+          return object;
+        }
+      }
+
+      return object;
+    }
+
+    const obj = {
+      age_int: 23,
+      name_string: "name",
+      age_float: 22.4,
+      Job: null,
+    }
+
+    const validatingbject = typeCheck(obj);
+    console.log(validatingbject);
+    validatingbject.job = "fireman";
+    validatingbject.age_int = 2.25;
+    typeCheck(obj);
+
+    const obj_2 = {
+      employed_bool: "true",
+    }
+    validatingbject = typeCheck(obj_2)
+  </script>
+</body>
+
+</html>

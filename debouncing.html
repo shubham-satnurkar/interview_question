@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Debouncing Method</title>
+</head>
+<body>
+	<input type="text" onkeyup="betterFunction()">
+
+	<script>
+		let counter=0;
+		const getData =()=>{
+			// calls an API & get data
+			console.log("Fetching Data..."+ counter++)
+		}
+		let timer;
+		const debounce = function(fn, d){
+			return function(){
+			let context = this;
+				args = arguments;
+				clearTimeout(timer)
+				timer=setTimeout(()=>{
+						getData.apply(context, arguments)
+				},d)
+			}
+		}
+
+		const betterFunction = debounce(getData, 500)
+	</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Comapring Two Objects</title>
+</head>
+<body>
+	<h1>Compairing Tow Objects and their key values</h1>
+
+	<script>
+		compaierObj();
+		object1 = {
+			id: 1,
+			firstName : "Shubham",
+			lastName : "Satnurkar",
+			age : 26,
+			employee : true,
+		}
+		object2 = {
+			id: 2,
+			firstName : "Shubham",
+			lastName : "Athawle",
+			age : 24,
+			employee : true,
+		}
+
+		function compaierObj(object1, object2){
+			const key1 = Object.keys(object1);
+			const key2 = Object.keys(object2);
+
+			if(key1.length !== key2.length){
+				console.log("Not of Equal Type")
+				return false;
+			}
+
+			for(let key in key1){
+				if(object1[key] !== object2[key]){
+					console.log("Not of Equal Type")
+					return false
+				}
+			}
+			console.log("Both are Equal")
+			return true
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Object</title>
+</head>
+<body>
+	<h1>In an Object Id should be readonly</h1>
+	<script>
+		let obj = {
+			id: '1',
+			firstName: 'Shubham',
+			lastName: 'Satnurkar',
+			fullName : function(){
+				return firstName + lastName
+			}
+		}
+		let result =  Object.freeze(obj);
+		obj.id =10; obj.firstName = "Rushikesh"
+		console.log(obj.id, obj.firstName);
+
+		let count =0;
+		let obj1={
+			count:0
+		}
+		for(let key in obj1){
+			++count;
+		}
+		console.log(obj1.count)
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Box</title>
+	<style type="text/css">
+		body{
+			/*height: 100vh;*/
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+
+	<script >
+		let str ="JavaScript Is Beautiful"
+		
+
+		// for(let i=1; i<str.length+1; i++){
+		// 	console.log(i + " "+ str.slice(0,i))
+		// }
+
+		// for(let i=str.length-1; i>0; i--){
+		// 	console.log(str.slice(0,i))
+
+		// }
+
+		let i = 1;
+		let timerId = setInterval(() => {
+		  if (i < str.length + 1) {
+		    console.log(str.slice(0, i));
+		    i += 1;
+		  } else {
+		    console.log('cleared');
+		    clearInterval(timerId);
+		  }
+		}, 1000)
+
+		let j = 1;
+		let timer = setInterval(() => {
+		  if (j < str.length - 1) {
+		    console.log(str.slice(0, j));
+		    j -= 1;
+		  } else {
+		    console.log('cleared');
+		    clearInterval(timer);
+		  }
+		}, 1000)
+	</script>
+</body>
+</html>

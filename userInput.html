@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>User Input</title>
+</head>
+<body>
+	<p>
+		<label>OnBlur Event:-</label>
+		<input type="text" id="input" onblur="txtChange()">
+		<span id="showTxt"></span>
+	</p>
+	<p>
+		<form>
+			<label>OnChange Event:-</label>
+			<select id="browser" onchange="selectBrowser()">
+				<option>Select Browser</option>
+				<option value="Chrome">Chrome</option>
+				<option value="Mozila Firefox">Mozila Firfox</option>
+				<option value="Microsoft Edge">Microsoft Edge</option>
+				<option value="Safari">Safari</option>
+			</select>
+		</form>
+		<span id="dropDwon"></span>
+	</p>
+	<script>
+		function txtChange(){
+			let input = document.getElementById('input');
+			let showTxt = document.getElementById('showTxt');
+			showTxt.innerHTML = input.value.toUpperCase();
+		}
+
+		function selectBrowser(){
+			let browser = document.forms[0].browser.value;
+			let result = document.getElementById('droptDown');
+			result.innerHTML = browser ;
+			console.log(browser)
+		}
+	</script>
+</body>
+</html>

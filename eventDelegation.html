@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Event Delegation</title>
+</head>
+<body>
+	<div class="container">
+		<ul id="category">
+		    <li id="laptops">Laptops</li>
+		    <li id="mobiles">Mobiles</li>
+		    <li id="cameras">Cameras</li>
+		    <li id="computers">Computers</li>
+		</ul>
+	</div>
+
+	<p id="target">
+		Name:<input type="text" name="name" id="name" data-uppercase>
+		Email:<input type="email" name="email" id="email" data-uppercase>
+		Pan:<input type="text" name="pan" id="pan" data-uppercase>
+	</p>
+
+	<script>
+		let elem = document.getElementById('category');
+		elem.addEventListener('click', function(e){
+			console.log(e.target.id)
+			if(e.target.tagName == 'LI'){
+				window.location.href= "/"+ e.target.id;
+			}
+		});
+
+		let target = document.getElementById('target');
+		target.addEventListener('keyup', function(e){
+			console.log(e.target.id);
+			if(e.target.dataset.uppercase != undefined){
+				e.target.value = e.target.value.toUpperCase();
+			}
+		})
+	</script>
+</body>
+</html>
